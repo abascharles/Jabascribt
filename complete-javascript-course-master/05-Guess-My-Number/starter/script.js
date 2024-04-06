@@ -14,6 +14,7 @@
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highscore = 0;
 
 // Game Logic    ZA
 
@@ -36,8 +37,13 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b347';
 
-    // Changing the width odf secret numbee box
+    // Changing the width of secret numbee box
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // When guess is too high
   } else if (guess > secretNumber) {
@@ -74,3 +80,5 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 });
+
+// Implementing highscore.
